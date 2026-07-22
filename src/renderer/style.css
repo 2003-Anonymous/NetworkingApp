@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #0B0F17;
+    --card-color: #121927;
+
+    --accent-green: #00FF66;
+    --text-color: #008744;
+    --glow-shadow: 0 0 15px rgba(0, 255, 106, 0.5);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    font-family: 'Consolas';
+
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 3px solid var(--accent-green);
+    box-shadow: var(--glow-shadow);
+    z-index: 10;
+}
+
+header.h1 {
+    margin: 0;
+}
+
+main {
+    background-color: var(--bg-color);
+
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+footer {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    font-family: 'Consolas';
+
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 3px solid var(--accent-green);
+}
+
+.appCollection {
+    background-color: #0B0F17;
+    height: 100%;
+    width: 100%;
+
+    padding: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.app {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    font-size: 20px;
+    font-family: 'Consolas';
+
+    min-width: 0;
+    min-height: 0px;
+    width: 100%;
+    height: 100%;
+
+    grid-column: span 1;
+    grid-row: span 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--accent-green);
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.app:hover {
+    transform: scale(1.03);
+    box-shadow: var(--glow-shadow);
+}
+
+
+@media (max-width: 768px) {
+    .appCollection {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .app {
+        min-height: 180px;
+    }
+}
