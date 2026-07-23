@@ -16,5 +16,9 @@
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.7"
   },
-  "main": "dist-electron/main.js"
+  "main": "dist-electron/main.js",
+  "dependencies": {
+    "node-wifi": "^2.0.16",
+    "systeminformation": "^5.33.0"
+  }
 }
