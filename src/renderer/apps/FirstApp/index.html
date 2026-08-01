@@ -7,13 +7,82 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Header</header>
+    <header>Internet Hub</header>
     <main>
         <div id="left-Container">
-            <div id="lC-overview">Overview</div>
-            <div id="lC-IPinformation">IP Information</div>
-            <div id="lC-vpnContainer">VPN Container</div>
-            <div id="lC-settingsContainer">Settings Container</div>
+            <div id="lC-overview">
+                <h3>Overview</h3>
+                <div class="info-row">
+                    <span class="label">Network: </span>
+                    <span id="ov-ssid">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Download: </span>
+                    <span id="ov-download">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Upload: </span>
+                    <span id="ov-upload">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">VPN: </span>
+                    <span id="ov-vpn-status" class="status-inactive">Not connected</span>
+                </div>
+            </div>
+            <div id="lC-IPinformation">
+                <h3>IP Information</h3>
+                <div class="info-row">
+                    <span class="label">IPv4: </span>
+                    <span id="in-ip4">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">IPv6: </span>
+                    <span id="in-ip6">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">IPv4 Subnet: </span>
+                    <span id="in-ip4-subnet">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">IPv6 Subnet: </span>
+                    <span id="in-ip6-subnet">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">MAC Address: </span>
+                    <span id="in-mac">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Default Gateway: </span>
+                    <span id="in-default-gateway">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">DNS: </span>
+                    <span id="in-dns">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">DHCP: </span>
+                    <span id="in-dhcp">-</span>
+                </div>
+            </div>
+            <div id="lC-vpnContainer">
+                <button id="vpnConnectBtn">Connect</button>
+                <button id="vpnDisconnectBtn">Disconnect</button>
+                <select id="vpn-country">
+                    <option value="canada1">Canada</option>
+                    <option value="uk1">United Kingdom</option>
+                    <option value="us1">United States</option>
+                </select>
+            </div>
+            <div id="lC-settingsContainer">
+                <button id="wifiDisconnectBtn">Disconnect</button>
+                <button id="wifiConnectBtn">Connect</button>
+                <button id="wifiRefreshBtn">Refresh</button>
+                <select id="wifi-networks">
+                    <option value="network1">Network 1</option>
+                    <option value="network2">Network 2</option>
+                    <option value="network3">Network 3</option>
+                </select>
+            </div>
         </div>
         <div id="right-Container">
             <div id="rC-topbar">
@@ -26,4 +95,5 @@
     </main>
     <footer>Footer</footer>
 </body>
+<script src="app.js" type="module"></script>
 </html>

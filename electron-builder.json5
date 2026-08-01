@@ -18,6 +18,7 @@
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
+    "requestedExecutionLevel": "requireAdministrator",
     "target": [
       {
         "target": "nsis",
