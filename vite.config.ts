@@ -13,7 +13,7 @@ export default defineConfig({
           build: {
             outDir: path.join(__dirname, 'dist-electron'),
             rollupOptions: {
-              external: ['systeminformation', 'node-wifi', 'os', 'fs', 'path', 'child_process', 'util', 'net', 'dns', 'events'],
+              external: [/^[^./\0]/],
             },
           },
         },

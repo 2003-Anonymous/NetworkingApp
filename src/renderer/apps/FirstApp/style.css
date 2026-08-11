@@ -5,137 +5,771 @@
     --accent-blue: #00ffdd;
     --text-color: rgb(4, 211, 226);
     --glow-shadow: 0 0 15px rgba(0, 255, 106, 0.5);
+
+    --btn-green: #00e87a;
+    --btn-red: #ff3355;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 html, body {
     height: 100%;
     width: 100%;
-
     margin: 0;
     padding: 0;
-
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Consolas', monospace;
 }
 
 header {
     background-color: var(--card-color);
     color: var(--text-color);
-    font-family: 'Consolas';
     width: 100%;
-    height: 10%;
-
+    height: 52px;
+    flex-shrink: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    justify-content: space-between;
+    padding: 0 20px;
     border-bottom: 2px solid var(--accent-blue);
+    gap: 16px;
+}
+
+#header-title {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+#header-stats {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.header-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+.header-stat svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.header-stat-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(0, 255, 221, 0.2);
+    flex-shrink: 0;
+}
+
+.status-inactive {
+    color: #ff4444;
 }
 
 main {
     background-color: var(--bg-color);
-    font-family: 'Consolas';
     width: 100%;
     flex: 1;
-
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
 footer {
     background-color: var(--card-color);
     color: var(--text-color);
-    font-family: 'Consolas';
     width: 100%;
     height: 5%;
-
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid rgba(0, 255, 221, 0.3);
+    font-size: 0.75rem;
+    opacity: 0.6;
 }
+
+
+/* ── Left Container ── */
 
 #left-Container {
-    background-color: blue;
+    background-color: var(--bg-color);
     height: 100%;
     width: 50%;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--accent-blue);
+    overflow: hidden;
+}
+
+#lC-overview,
+#lC-IPinformation,
+#lC-vpnContainer,
+#lC-settingsContainer {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(0, 255, 221, 0.15);
+    overflow: hidden;
+}
+
+#lC-IPinformation   { height: 45%; overflow-y: auto; }
+#lC-vpnContainer    { height: 22%; }
+#lC-settingsContainer { height: 33%; }
+
+h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    border-bottom: 1px solid rgba(0, 255, 221, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 0.8rem;
+    padding: 2px 0;
+}
+
+.label {
+    color: rgba(4, 211, 226, 0.55);
+    min-width: 110px;
+    flex-shrink: 0;
+}
+
+.status-inactive {
+    color: #ff4444;
 }
 
 
+/* ── Right Container ── */
+
 #right-Container {
-    background-color: yellow;
+    background-color: var(--bg-color);
     height: 100%;
     width: 50%;
-
     display: flex;
     flex-direction: column;
 }
-#rC-topbar {
-    background-color: purple;
-    height: 10%;
-    width: 100%;
 
+#rC-topbar {
+    background-color: var(--card-color);
+    height: 8%;
+    min-height: 40px;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 221, 0.25);
 }
-.rC-topbarBtn {
-    background-color: brown;
-    height: 100%;
-    width: 15%;
 
+.rC-topbarBtn {
+    background-color: transparent;
+    height: 100%;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-right: 1px solid black;
+    border-right: 1px solid rgba(0, 255, 221, 0.15);
 }
 
 #rC-mapContainer {
-    background-color: orange;
+    background-color: var(--bg-color);
     flex: 1;
     width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 #rC-terminalContainer {
-    background-color: pink;
-    height: 20%;
-    width: 100%;
-}
-
-#lC-overview {
     background-color: var(--card-color);
-    color: var(--text-color);
-    height: 30%;
-    width: 100%;
-}
-
-#lC-overview h3 {
-    margin: 0;
-}
-
-#lC-IPinformation {
-    background-color: magenta;
-    height: 40%;
-    width: 100%;
-}
-
-#lC-IPinformation h3 {
-    margin: 0;
-}
-
-#lC-vpnContainer {
-    background-color: lightgray;
-    height: 10%;
-    width: 100%;
-}
-
-#lC-settingsContainer {
-    background-color: lightblue;
     height: 20%;
     width: 100%;
+    padding: 10px 14px;
+    border-top: 1px solid rgba(0, 255, 221, 0.25);
+    overflow-y: auto;
+    color: var(--text-color);
+}
+
+#rC-terminalContainer p {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+
+/* ── WLAN Login Overlay ── */
+
+#wlanLoginOverlay {
+    background-color: rgba(11, 15, 23, 0.85);
+    inset: 0;
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    z-index: 100;
+}
+
+/* ── Glitch Card ── */
+
+.glitch-form-wrapper {
+    --primary-color: var(--accent-blue);
+    --bg-color: var(--card-color);
+    --secondary-color: #a855f7;
+    --input-text: #e5e5e5;
+    --font-family: 'Consolas', "Fira Code", "Courier New", monospace;
+    --glitch-anim-duration: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+}
+
+.glitch-card {
+    background-color: var(--bg-color);
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid rgba(0, 255, 221, 0.2);
+    box-shadow:
+        0 0 20px rgba(0, 255, 221, 0.1),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgba(0, 255, 221, 0.2);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.card-title svg {
+    width: 1.2em;
+    height: 1.2em;
+    stroke: var(--primary-color);
+}
+
+.card-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #333;
+    margin-left: 5px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+
+.form-label {
+    position: absolute;
+    top: 0.75em;
+    left: 0;
+    font-size: 1rem;
+    color: var(--primary-color);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 255, 221, 0.3);
+    padding: 0.75em 0;
+    font-size: 1rem;
+    color: var(--input-text);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.form-group input:focus + .form-label,
+.form-group input:not(:placeholder-shown) + .form-label {
+    top: -1.2em;
+    font-size: 0.8rem;
+    opacity: 1;
+}
+
+.form-group input:focus + .form-label::before,
+.form-group input:focus + .form-label::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+.form-group input:focus + .form-label::before {
+    color: var(--secondary-color);
+    animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.form-group input:focus + .form-label::after {
+    color: var(--primary-color);
+    animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+@keyframes glitch-anim {
+    0%   { transform: translate(0);       clip-path: inset(0 0 0 0);    }
+    20%  { transform: translate(-5px, 3px); clip-path: inset(50% 0 20% 0); }
+    40%  { transform: translate(3px, -2px);  clip-path: inset(20% 0 60% 0); }
+    60%  { transform: translate(-4px, 2px);  clip-path: inset(80% 0 5% 0);  }
+    80%  { transform: translate(4px, -3px);  clip-path: inset(30% 0 45% 0); }
+    100% { transform: translate(0);       clip-path: inset(0 0 0 0);    }
+}
+
+/* SSID static display */
+.ssid-display {
+    width: 100%;
+    padding: 0.75em 0;
+    font-size: 1rem;
+    color: var(--input-text);
+    border-bottom: 2px solid rgba(0, 255, 221, 0.3);
+    font-family: inherit;
+    opacity: 0.75;
+    letter-spacing: 0.05em;
+}
+
+.ssid-label {
+    top: -1.2em;
+    font-size: 0.8rem;
+    opacity: 1;
+}
+
+/* Buttons */
+.submit-btn {
+    width: 100%;
+    padding: 0.8em;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--primary-color);
+    outline: none;
+}
+
+.submit-btn:active { transform: scale(0.97); }
+
+.submit-btn .btn-text {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover .btn-text { opacity: 0; }
+
+.submit-btn::before,
+.submit-btn::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background-color: var(--primary-color);
+    transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover::before,
+.submit-btn:focus::before {
+    opacity: 1;
+    color: var(--secondary-color);
+    animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.submit-btn:hover::after,
+.submit-btn:focus::after {
+    opacity: 1;
+    color: var(--bg-color);
+    animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+.cancel-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.5em;
+    background: transparent;
+    border: none;
+    color: rgba(0, 255, 221, 0.4);
+    font-family: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cancel-btn:hover { color: var(--primary-color); }
+
+@media (prefers-reduced-motion: reduce) {
+    .form-group input:focus + .form-label::before,
+    .form-group input:focus + .form-label::after,
+    .submit-btn:hover::before,
+    .submit-btn:focus::before,
+    .submit-btn:hover::after,
+    .submit-btn:focus::after {
+        animation: none;
+        opacity: 0;
+    }
+    .submit-btn:hover .btn-text { opacity: 1; }
+}
+
+
+/* ── Scan Loader ── */
+
+#scanLoader {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(11, 15, 23, 0.65);
+    z-index: 10;
+}
+
+.loader {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 221, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    background: transparent;
+    border: 1px dashed rgba(0, 255, 221, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0, 255, 221, 0.15);
+    box-shadow:
+        inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    transform-origin: top left;
+    animation: radar81 2s linear infinite;
+    border-top: 1px dashed rgba(0, 255, 221, 0.6);
+}
+
+.loader span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00ffdd;
+    transform-origin: top left;
+    transform: rotate(-55deg);
+    filter: blur(30px) drop-shadow(20px 20px 20px #00ffdd);
+}
+
+@keyframes radar81 {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* ── Connect / Disconnect Buttons ── */
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.btn-connect,
+.btn-disconnect,
+.btn-action {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+    position: relative;
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-family: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-connect::before,
+.btn-disconnect::before,
+.btn-action::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--card-color);
+}
+
+.btn-connect span,
+.btn-disconnect span,
+.btn-action span {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-connect i,
+.btn-disconnect i,
+.btn-action i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+/* ── Green (connect) ── */
+.btn-connect:hover {
+    background: var(--btn-green);
+    color: var(--btn-green);
+    box-shadow: 0 0 22px var(--btn-green);
+}
+
+.btn-connect i::before {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--btn-green);
+    width: 7px; height: 4px;
+    top: -3.5px; left: 80%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-connect:hover i::before { width: 20px; left: 20%; }
+
+.btn-connect i::after {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--btn-green);
+    width: 7px; height: 4px;
+    bottom: -3.5px; left: 20%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-connect:hover i::after { width: 20px; left: 80%; }
+
+/* ── Red (disconnect) ── */
+.btn-disconnect:hover {
+    background: var(--btn-red);
+    color: var(--btn-red);
+    box-shadow: 0 0 22px var(--btn-red);
+}
+
+.btn-disconnect i::before {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--btn-red);
+    width: 7px; height: 4px;
+    top: -3.5px; left: 80%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-disconnect:hover i::before { width: 20px; left: 20%; }
+
+.btn-disconnect i::after {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--btn-red);
+    width: 7px; height: 4px;
+    bottom: -3.5px; left: 20%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-disconnect:hover i::after { width: 20px; left: 80%; }
+
+/* ── Cyan (action/refresh) ── */
+.btn-action:hover {
+    background: var(--accent-blue);
+    color: var(--accent-blue);
+    box-shadow: 0 0 22px var(--accent-blue);
+}
+
+.btn-action i::before {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--accent-blue);
+    width: 7px; height: 4px;
+    top: -3.5px; left: 80%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-action:hover i::before { width: 20px; left: 20%; }
+
+.btn-action i::after {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--accent-blue);
+    width: 7px; height: 4px;
+    bottom: -3.5px; left: 20%;
+    background: var(--card-color);
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.btn-action:hover i::after { width: 20px; left: 80%; }
+
+/* Container-Layout für VPN und WiFi */
+#lC-vpnContainer,
+#lC-settingsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#lC-settingsContainer select,
+#lC-vpnContainer select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    background-color: var(--bg-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%2300ffdd' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 10px 6px;
+    color: var(--text-color);
+    border: 1px solid rgba(0, 255, 221, 0.15);
+    border-bottom: 2px solid rgba(0, 255, 221, 0.35);
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 5px 28px 5px 8px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#lC-settingsContainer select:hover,
+#lC-vpnContainer select:hover,
+#lC-settingsContainer select:focus,
+#lC-vpnContainer select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 8px rgba(0, 255, 221, 0.18);
+}
+
+#lC-settingsContainer select option,
+#lC-vpnContainer select option {
+    background-color: #121927;
+    color: rgb(4, 211, 226);
+    padding: 6px 8px;
+}
+
+#lC-settingsContainer select option:checked,
+#lC-vpnContainer select option:checked {
+    background-color: rgba(0, 255, 221, 0.12);
+}
+
+#lC-settingsContainer select option:hover,
+#lC-vpnContainer select option:hover {
+    background-color: rgba(0, 255, 221, 0.18);
 }
