@@ -59,9 +59,10 @@ NetworkingApp/
 
 ### High Priority
 
-- [ ] **Fix WiFi connect for WPA3** — bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3.
-- [ ] **Topology discovery** — detect switches, access points, and separate subnets so the diagram reflects the actual network structure instead of a flat star
-- [x] **Scan button styling** — finish the CSS for the scan and download button
+- [ ] **Diagramm** - change the colors of the diagramm to make it more visible.
+- [ ] **Fix WiFi connect for WPA3** - bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3.
+- [ ] **Topology discovery** - detect switches, access points, and separate subnets so the diagram reflects the actual network structure.
+- [x] **Scan button styling** - finish the CSS for the scan and download button.
 
 ### Medium Priority
 
