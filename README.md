@@ -41,3 +41,53 @@ NetworkingApp/
 
 ---
 
+## Features
+
+### Implemented
+
+- **Network Scanner** — nmap ping-scan (`-sn -PR`) with MAC address extraction; falls back to `arp -a` if nmap is not installed
+- **Device Type Detection** — layered: mDNS type → hostname keywords → MAC vendor lookup (~30 vendors)
+- **Network Diagram** — vis.js hierarchical layout; click a node to resolve its hostname; export as self-contained SVG
+- **IP Information** — IPv4/6, subnet, MAC, gateway, DNS, DHCP via `systeminformation`
+- **WiFi Management** — scan available networks, connect (password overlay), disconnect; auto-detects network changes every 3 s and updates the header
+- **VPN Client** — connects via OpenVPN configs; status pushed to renderer via IPC
+- **Header Stats Bar** — SSID, download speed, upload speed, VPN status with inline SVG icons; live-updated
+
+---
+
+## Next Steps
+
+### High Priority
+
+- [ ] **Fix WiFi connect for WPA3** — bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3. A plan file exists at `.claude/plans/error-connecting-to-wifi-piped-possum.md`.
+- [ ] **Topology discovery** — detect switches, access points, and separate subnets so the diagram reflects the actual network structure instead of a flat star
+- [ ] **Scan button styling** — apply the cyber button template (same style as Connect/Disconnect) to the Scan and Download buttons in the right panel topbar
+
+### Medium Priority
+
+- [ ] **Footer** — replace placeholder with something useful (e.g. last scan time, device count, local IP)
+- [ ] **Terminal / log section** — the `#rC-terminalContainer` at the bottom right is currently empty; wire it up to show scan output, connection events, and errors
+- [ ] **VPN country list** — replace hardcoded options with dynamically loaded `.ovpn` files from `vpn-configs/`
+- [ ] **Node click detail panel** — when clicking a diagram node, show a richer panel (open ports, mDNS services, ping latency) instead of just resolving the hostname
+
+### Lower Priority
+
+- [ ] **WiFi signal strength** — show RSSI / signal bar next to each network in the dropdown
+- [ ] **Persistent scan cache** — remember the last scan result so the diagram is not empty on app start
+- [ ] **Dark/light theme toggle** — the CSS variable system is already in place; adding a toggle would be straightforward
+- [ ] **Packaging** — configure `electron-builder` for a distributable Windows installer (`.exe`)
+
+---
+
+## Running the App
+
+```bash
+npm run dev
+```
+
+> Run as **Administrator** for WiFi connect/disconnect to work (requires elevated privileges on Windows).
+
+Nmap must be installed at one of these paths (checked in order):
+- `C:/Program Files (x86)/Nmap/nmap.exe`
+- `C:/Program Files/Nmap/nmap.exe`
+- `nmap` (on PATH)
