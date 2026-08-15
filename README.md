@@ -59,9 +59,9 @@ NetworkingApp/
 
 ### High Priority
 
-- [ ] **Fix WiFi connect for WPA3** — bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3. A plan file exists at `.claude/plans/error-connecting-to-wifi-piped-possum.md`.
+- [ ] **Fix WiFi connect for WPA3** — bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3.
 - [ ] **Topology discovery** — detect switches, access points, and separate subnets so the diagram reflects the actual network structure instead of a flat star
-- [ ] **Scan button styling** — apply the cyber button template (same style as Connect/Disconnect) to the Scan and Download buttons in the right panel topbar
+- [ ] **Scan button styling** — finish the CSS for the scan and download button
 
 ### Medium Priority
 
@@ -73,8 +73,6 @@ NetworkingApp/
 ### Lower Priority
 
 - [ ] **WiFi signal strength** — show RSSI / signal bar next to each network in the dropdown
-- [ ] **Persistent scan cache** — remember the last scan result so the diagram is not empty on app start
-- [ ] **Dark/light theme toggle** — the CSS variable system is already in place; adding a toggle would be straightforward
 - [ ] **Packaging** — configure `electron-builder` for a distributable Windows installer (`.exe`)
 
 ---
