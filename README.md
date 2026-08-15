@@ -61,7 +61,7 @@ NetworkingApp/
 
 - [ ] **Fix WiFi connect for WPA3** — bypass `node-wifi` and call `netsh wlan connect name="<ssid>"` directly, which uses the existing Windows profile and supports WPA3.
 - [ ] **Topology discovery** — detect switches, access points, and separate subnets so the diagram reflects the actual network structure instead of a flat star
-- [ ] **Scan button styling** — finish the CSS for the scan and download button
+- [x] **Scan button styling** — finish the CSS for the scan and download button
 
 ### Medium Priority
 
@@ -78,6 +78,13 @@ NetworkingApp/
 ---
 
 ## Running the App
+
+```bash
+git clone <repo-url>
+cd NetworkingApp
+npm install
+```
+Install Nmap with this Link:  nmap.org/download.html
 
 ```bash
 npm run dev
